@@ -1,4 +1,5 @@
-import Typing
+from resources.Statblock import StatBlock
+from resources.Typing import PokemonType
 
 
 class CalculateDamagePTU:
@@ -26,14 +27,10 @@ class CalculateDamagePTU:
 
 
 class Unit:
-    def __init__(self):
-        self.attack = 0
-        self.defense = 0
-        self.sp_attack = 0
-        self.sp_defense = 0
-        self.speed = 0
-        self.kp = 0
-        self.type = 1
+    def __init__(self, stats, type):
+        self.stats = StatBlock()
+        self.type = PokemonType(type)
+        self.stats.insert_values(stats[0], stats[1], stats[2], stats[3], stats[4], stats[5])
 
 
 def calculate_mod(attacker, defendant):
